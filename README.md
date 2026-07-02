@@ -6,21 +6,7 @@ An event-driven, multi-agent AI system that automatically reviews GitHub Pull Re
 
 A GitHub webhook fires on every PR open or push event. The system fetches the diff, runs three specialized AI agents in parallel using LangGraph, merges their findings, and posts a structured review comment back to the PR — all without human intervention.
 
-```
-GitHub PR Event
-      ↓
-Webhook (FastAPI) — signature verified
-      ↓
-Diff Fetched (GitHub API)
-      ↓
-      ├── Security Agent ──┐
-      ├── Style Agent ─────┼── Parallel (LangGraph StateGraph)
-      └── Architecture ────┘
-                ↓
-         Merge Findings
-                ↓
-    PR Comment Posted (GitHub API)
-```
+![Diagram](docs/diagram.png)
 
 ## Agents
 
